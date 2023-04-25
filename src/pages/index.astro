@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+let allPosts = await Astro.glob('../posts/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+
 ---
 
 <Layout title="Welcome to Astro.">
@@ -10,6 +14,7 @@ import Card from '../components/Card.astro';
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
+		
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
@@ -31,6 +36,13 @@ import Card from '../components/Card.astro';
 				title="Community"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
+		</ul>
+
+		<ul>
+			{allPosts.map((p) => <li>
+				{p.frontmatter.title} - 
+				{p.frontmatter.date}
+			</li>)}
 		</ul>
 	</main>
 </Layout>

@@ -4,8 +4,6 @@ backend:
   branch: master
   repo: onionhammer/astro-static-cms-starter
   ### enable below lines for github integration ###
-  # name: github
-  # repo: surjithctly/eleventy-starter
 media_folder: "/public/img"
 public_folder: "/public/img"
 

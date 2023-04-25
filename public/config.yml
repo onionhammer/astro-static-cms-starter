@@ -3,12 +3,13 @@ backend:
   name: github
   branch: master
   repo: onionhammer/astro-static-cms-starter
-  ### enable below lines for github integration ###
-media_folder: "/public/img"
-public_folder: "/public/img"
+
+media_folder: "public/assets"
+public_folder: "/assets"
 
 # Please run "npx @staticcms/proxy-server" for local backend
 local_backend: true
+
 # publish_mode: editorial_workflow
 collections:
   - label: "Blog"
@@ -16,7 +17,7 @@ collections:
     folder: "src/posts"
     create: true
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
